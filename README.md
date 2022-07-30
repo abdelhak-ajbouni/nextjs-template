@@ -1,6 +1,3 @@
-# Fullstack Template
+# Next.js Template
 
-This is an app bootstrapped according to the [init.tips](https://init.tips) stack, also known as the T3-Stack.
-
-
-unstable_getServerSession
+Fullstack template with authentication and users APIs
