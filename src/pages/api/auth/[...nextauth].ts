@@ -17,21 +17,21 @@ export const authOptions: NextAuthOptions = {
       clientSecret: google.clientSecret!,
     }),
     // ...add more providers here
-    CredentialsProvider({
-      name: "Credentials",
-      credentials: {
-        name: {
-          label: "Name",
-          type: "text",
-          placeholder: "Enter your name",
-        },
-      },
-      // TODO: refactor authorize in CredentialsProvider
-      async authorize(credentials, _req) {
-        const user = { id: 1, name: credentials?.name ?? "J Smith" };
-        return user;
-      },
-    }),
+    // CredentialsProvider({
+    //   name: "Credentials",
+    //   credentials: {
+    //     name: {
+    //       label: "Name",
+    //       type: "text",
+    //       placeholder: "Enter your name",
+    //     },
+    //   },
+    //   // TODO: refactor authorize in CredentialsProvider
+    //   async authorize(credentials, _req) {
+    //     const user = { id: 1, name: credentials?.name ?? "J Smith" };
+    //     return user;
+    //   },
+    // }),
   ],
   pages: {
     signIn: '/auth/login',
