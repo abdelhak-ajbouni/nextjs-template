@@ -6,9 +6,9 @@ export default function Container({ className, classNameContent, title, actions,
 
   return (
     <div className={cn(
+      fluid ? "container-fluid" : "container",
       className,
       "mx-auto",
-      fluid ? "container-fluid" : "container",
       hasShadow && "shadow-md shadow-gray-100"
     )}>
       {
