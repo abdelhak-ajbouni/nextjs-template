@@ -1,12 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  content: ["./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./public/**/*.html",
+    "./node_modules/flowbite-react/**/*.js",
+  ],
   theme: {
     extend: {},
   },
   darkMode: 'class',
   plugins: [
+    require("flowbite/plugin"),
     require('@tailwindcss/forms'),
     function ({ addComponents }) {
       addComponents({
