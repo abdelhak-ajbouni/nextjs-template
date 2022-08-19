@@ -58,7 +58,9 @@ export default function NavBar({ noActions, pages, dropdownPages }: Props) {
                           {
                             dropdownPages.map(({ label, path }) => (
                               <Dropdown.Item key={label}>
-                                {label}
+                                <Link href={path}>
+                                  {label}
+                                </Link>
                               </Dropdown.Item>
                             ))
                           }
