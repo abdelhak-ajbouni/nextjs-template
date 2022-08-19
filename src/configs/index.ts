@@ -3,7 +3,7 @@ const env = process.env
 
 const configs = {
   mode: env.NODE_ENV || "development",
-  debug: !!env.DEBUG || false,
+  debug: env.DEBUG === "true",
   nextAuth: {
     url: env.NEXTAUTH_URL,
     secret: env.NEXTAUTH_SECRET
