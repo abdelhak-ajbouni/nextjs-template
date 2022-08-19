@@ -1,38 +1,110 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
+import Image from 'next/image'
+import Link from 'next/link'
+import { Navbar, Dropdown, Avatar, Button } from 'flowbite-react'
 
-import useDarkMode from 'hooks/useDarkMode'
+import useStore from 'utils/store'
 import Container from 'components/common/Container'
+import DarkModeToggle from 'components/DarkModeToggle'
 
-export default function NavBar({ }: Props) {
-  const { data: session } = useSession()
-  const [dark, setDark] = useDarkMode()
+export default function NavBar({ noActions, pages, dropdownPages }: Props) {
+  const { data: session, status } = useSession()
+  const { me, setMe } = useStore(state => state)
+  const { image, name, email } = me || {}
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      setMe(session.user)
+    }
+  }, [status, session, setMe])
 
   return (
-    <div className='nav-bar bg-white border-b'>
-      <Container className="flex justify-between p-4" fluid>
-
-        <div className='logo'>
-          LOGO
-        </div>
-
-        <div className='user'>
-          <button onClick={() => setDark(!dark)}>dark</button>
+    <div className='nav-bar bg-white dark:bg-gray-800 border-b'>
+      <Container>
+        <Navbar
+          fluid={true}
+          rounded={true}
+        >
+          <Navbar.Brand>
+            <Link href={'/'}>
+              <Image
+                src="/logo-placeholder.png"
+                className="mr-3 h-6 sm:h-9 cursor-pointer"
+                alt="Logo"
+                height={40}
+                width={160}
+              />
+            </Link>
+          </Navbar.Brand>
+          
           {
-            session ? (
+            !noActions && (
               <>
-                <span className='mx-4'>{session?.user?.email}</span>
-                <button onClick={() => signOut()}>Sign out</button>
+                <div className="flex md:order-2">
+                  <>
+                    <DarkModeToggle />
+                    {
+                      status === 'authenticated' && (
+                        <Dropdown
+                          arrowIcon={false}
+                          inline={true}
+                          label={<Avatar alt="User settings" img={image || ''} rounded={true} />}
+                        >
+                          <Dropdown.Header>
+                            <span className="block text-sm">{name}</span>
+                            <span className="block truncate text-sm font-medium">{email}</span>
+                          </Dropdown.Header>
+                          {
+                            dropdownPages.map(({ label, path }) => (
+                              <Dropdown.Item key={label}>
+                                {label}
+                              </Dropdown.Item>
+                            ))
+                          }
+                          <Dropdown.Divider />
+                          <Dropdown.Item onClick={() => signOut()}>
+                            Sign out
+                          </Dropdown.Item>
+                        </Dropdown>
+                      )
+                    }
+                    {
+                      status === 'unauthenticated' && (
+                        <Button color="light" onClick={() => signIn()}>Sign in</Button>
+                      )
+                    }
+                  </>
+                  <Navbar.Toggle />
+                </div>
+                <Navbar.Collapse>
+                  {
+                    pages.map(({ label, path, active }) => (
+                      <Navbar.Link key={label} href={path} active={active}>
+                        {label}
+                      </Navbar.Link>
+                    ))
+                  }
+                </Navbar.Collapse>
               </>
-            ) : (
-              <button onClick={() => signIn()}>Sign in</button>
             )
           }
-        </div>
 
+        </Navbar>
       </Container>
     </div>
   )
 }
 
-type Props = {}
+type Props = {
+  noActions?: boolean
+  pages: {
+    label: string
+    path: string,
+    active: boolean
+  }[]
+  dropdownPages: {
+    label: string
+    path: string,
+  }[]
+}
