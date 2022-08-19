@@ -1,16 +1,10 @@
 import React from 'react'
+import { useTheme } from 'next-themes'
 import { MdDarkMode, MdLightMode } from 'react-icons/md'
 import cn from 'classnames'
 
-import useDarkMode from 'hooks/useDarkMode'
-
 export default function DarkModeToggle({ }: Props) {
-  const [dark, setDark] = useDarkMode()
-
-  const getIcon = (isDark: boolean) => {
-    console.log('isDark =========================', isDark)
-    return isDark ? <MdLightMode /> : <MdDarkMode />
-  }
+  const { theme, setTheme } = useTheme()
 
   return (
     <>
@@ -20,11 +14,11 @@ export default function DarkModeToggle({ }: Props) {
           "hover:bg-neutral-100 focus:outline-none",
           "dark:hover:bg-gray-700 dark:text-white"
         )}
-        onClick={() => setDark(!dark)}
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         type="button"
       >
         <span className="sr-only">Icon description</span>
-        {getIcon(!!dark)}
+        {theme === "dark" ? <MdLightMode /> : <MdDarkMode />}
       </button>
     </>
   )

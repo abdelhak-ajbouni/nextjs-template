@@ -1,6 +1,7 @@
 // src/pages/_app.tsx
 import { withTRPC } from "@trpc/next";
 import { SessionProvider } from "next-auth/react";
+import { ThemeProvider } from 'next-themes'
 import superjson from "superjson";
 import type { AppType, NextComponentType } from "next/dist/shared/lib/utils";
 
@@ -19,10 +20,12 @@ const MyApp: AppType = ({
 
   return (
     <SessionProvider session={session}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-      <Loader />
+      <ThemeProvider attribute="class" defaultTheme="system">
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+        <Loader />
+      </ThemeProvider>
     </SessionProvider>
   );
 };

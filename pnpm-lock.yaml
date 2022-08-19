@@ -22,6 +22,7 @@ specifiers:
   lint-staged: ^13.0.3
   next: 12.2.0
   next-auth: ^4.9.0
+  next-themes: ^0.2.0
   postcss: ^8.4.14
   prisma: ^4.0.0
   react: 18.2.0
@@ -47,6 +48,7 @@ dependencies:
   flowbite-react: 0.1.5_qqnkceie6seibxy6i64qmre6wm
   next: 12.2.0_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.9.0_biqbaboplfbrettd7655fr4n2y
+  next-themes: 0.2.0_24lkarzjpo3wcmj2o6qyrkug4y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.4.0_react@18.2.0
@@ -2489,6 +2491,18 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       uuid: 8.3.2
+    dev: false
+
+  /next-themes/0.2.0_24lkarzjpo3wcmj2o6qyrkug4y:
+    resolution: {integrity: sha512-myhpDL4vadBD9YDSHiewqvzorGzB03N84e+3LxCwHRlM/hiBOaW+UsKsQojQAzC7fdcJA0l2ppveXcYaVV+hxQ==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 12.2.0_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
     dev: false
 
   /next/12.2.0_biqbaboplfbrettd7655fr4n2y:
