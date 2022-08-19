@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-import Default from 'layouts/Default'
 import Banner from "components/Banner";
 
 const Home: NextPage = () => {
@@ -14,9 +13,7 @@ const Home: NextPage = () => {
       </Head>
 
       <div className="home">
-        <Default>
           <Banner />
-        </Default>
       </div>
     </>
   );
