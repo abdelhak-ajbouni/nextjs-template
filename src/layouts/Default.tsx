@@ -8,7 +8,7 @@ export default function Default({ children }: Props) {
     <>
       <NavBar
         pages={[{ label: 'About', path: '/about', active: true }]}
-        dropdownPages={[{ label: 'Settings', path: '/settings' }]}
+        dropdownPages={[{ label: 'Settings', path: '/me/settings' }]}
       />
       <main>{children}</main>
     </>
