@@ -2,6 +2,14 @@
 
 Fullstack template with authentication and users management APIs
 
+## scripts
+
+```bash
+  pnpm run dev    # run server on development mode
+  pnpm start      # run server on production mode
+```
+read more about [pnpm](https://pnpm.io/motivation)
+
 ## resources
 
 * [tailwindcss](https://tailwindcss.com)
@@ -9,5 +17,6 @@ Fullstack template with authentication and users management APIs
 * [next-auth](https://next-auth.js.org)
 * [react-query](https://www.npmjs.com/package/react-query)
 * [tRPC](https://trpc.io)
+* [awesome-trpc](https://trpc.io/docs/v9/awesome-trpc)
 * [zod](https://www.npmjs.com/package/zod)
 * [prisma](https://www.prisma.io)
