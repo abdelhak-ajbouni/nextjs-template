@@ -1,7 +1,7 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
 
-import { createRouter } from "../../utils/context";
+import { createRouter } from "utils/context";
 
 export const usersRouter = createRouter()
   .middleware(async ({ ctx, next }) => {
