@@ -37,7 +37,7 @@ export default function NavBar({ noActions, pages, dropdownPages }: Props) {
               />
             </Link>
           </Navbar.Brand>
-          
+
           {
             !noActions && (
               <>
@@ -51,17 +51,19 @@ export default function NavBar({ noActions, pages, dropdownPages }: Props) {
                           inline={true}
                           label={<Avatar alt="User settings" img={image || ''} rounded={true} />}
                         >
-                          <Dropdown.Header>
-                            <span className="block text-sm">{name}</span>
-                            <span className="block truncate text-sm font-medium">{email}</span>
-                          </Dropdown.Header>
+                          <Link href={'/me'}>
+                            <Dropdown.Header>
+                              <span className="block text-sm cursor-pointer">{name}</span>
+                              <span className="block truncate text-sm font-medium cursor-pointer">{email}</span>
+                            </Dropdown.Header>
+                          </Link>
                           {
                             dropdownPages.map(({ label, path }) => (
-                              <Dropdown.Item key={label}>
-                                <Link href={path}>
+                              <Link key={label} href={path}>
+                                <Dropdown.Item >
                                   {label}
-                                </Link>
-                              </Dropdown.Item>
+                                </Dropdown.Item>
+                              </Link>
                             ))
                           }
                           <Dropdown.Divider />
