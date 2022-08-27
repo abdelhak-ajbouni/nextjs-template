@@ -9,8 +9,11 @@ import configs from "configs"
 const { debug, google } = configs;
 
 export const authOptions: NextAuthOptions = {
-  // Configure one or more authentication providers
+  debug: debug,
   adapter: PrismaAdapter(prisma),
+  session: {
+    strategy: "jwt",
+  },
   providers: [
     GoogleProvider({
       clientId: google.clientId!,
@@ -54,7 +57,6 @@ export const authOptions: NextAuthOptions = {
       return token
     }
   },
-  debug: debug,
 };
 
 export default NextAuth(authOptions);
