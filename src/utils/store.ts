@@ -12,7 +12,7 @@ const useStore = create<Store>((set) => ({
 
 export default useStore;
 
-interface Store {
+export type Store = {
   loading: boolean
   me: DefaultSession['user']
   dark: boolean
