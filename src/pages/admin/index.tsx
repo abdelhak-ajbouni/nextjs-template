@@ -11,7 +11,6 @@ const Admin: NextPage = () => {
       <Head>
         <title>Admin</title>
         <meta name="description" content="admin" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="admin">

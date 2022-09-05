@@ -11,7 +11,6 @@ const Settings: NextPage = () => {
       <Head>
         <title>Settings</title>
         <meta name="description" content="settings" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <div className="settings">
