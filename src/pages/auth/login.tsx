@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 import { getProviders, signIn } from "next-auth/react"
 
-import LightLayout from 'layouts/Light'
+import Light from 'layouts/Light'
 import Container from 'components/common/Container'
 
 export default function SignIn({ providers }: Props) {
@@ -37,7 +37,7 @@ export default function SignIn({ providers }: Props) {
   )
 }
 
-SignIn.Layout = LightLayout;
+SignIn.layout = Light;
 
 export const getServerSideProps: GetServerSideProps = async () => {
   const providers = await getProviders()

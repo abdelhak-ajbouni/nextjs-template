@@ -3,7 +3,8 @@ import { withTRPC } from "@trpc/next";
 import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from 'next-themes'
 import superjson from "superjson";
-import type { AppType, NextComponentType } from "next/dist/shared/lib/utils";
+import type { AppType } from "next/dist/shared/lib/utils";
+import { NextComponentTypeWithLayout } from 'types'
 
 import type { AppRouter } from "server/router";
 import DefaultLayout from 'layouts/Default'
@@ -16,7 +17,7 @@ const MyApp: AppType = ({
   pageProps: { session, ...pageProps },
 }) => {
 
-  const Layout = (Component as NextComponentTypeWithLayout).Layout || DefaultLayout;
+  const Layout = (Component as NextComponentTypeWithLayout).layout || DefaultLayout;
 
   return (
     <SessionProvider session={session}>
@@ -64,6 +65,3 @@ export default withTRPC<AppRouter>({
 })(MyApp);
 
 
-export type NextComponentTypeWithLayout = NextComponentType & {
-  Layout: React.ElementType
-};  

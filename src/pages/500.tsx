@@ -1,14 +1,14 @@
-import type { NextPage } from "next";
 import Head from "next/head";
 import Link from 'next/link'
 import { RiFileWarningLine } from 'react-icons/ri'
 import { WiDirectionLeft } from 'react-icons/wi'
 
+import { NextPageWithLayout } from "types";
 import Light from 'layouts/Light'
 import Container from "components/common/Container";
 import Box from 'components/common/Box'
 
-const NotFound: NextPage = () => {
+const ServerSideError: NextPageWithLayout = () => {
   return (
     <>
       <Head>
@@ -29,6 +29,6 @@ const NotFound: NextPage = () => {
   );
 };
 
-NotFound.Layout = Light
+ServerSideError.layout = Light
 
-export default NotFound;
+export default ServerSideError;
