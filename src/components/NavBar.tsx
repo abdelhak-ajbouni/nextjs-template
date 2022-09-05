@@ -40,8 +40,8 @@ export default function NavBar({ noActions, pages, dropdownPages }: Props) {
 
           {
             !noActions && (
-              <>
-                <div className="flex md:order-2">
+              <div className='flex items-center'>
+                <div className="flex md:order-2 ml-8">
                   <>
                     <DarkModeToggle />
                     {
@@ -49,6 +49,7 @@ export default function NavBar({ noActions, pages, dropdownPages }: Props) {
                         <Dropdown
                           arrowIcon={false}
                           inline={true}
+                          // TODO: add default image
                           label={<Avatar alt="User settings" img={image || ''} rounded={true} />}
                         >
                           <Link href={'/me'}>
@@ -90,7 +91,7 @@ export default function NavBar({ noActions, pages, dropdownPages }: Props) {
                     ))
                   }
                 </Navbar.Collapse>
-              </>
+              </div>
             )
           }
 
