@@ -10,7 +10,7 @@ export default function DarkModeToggle({ }: Props) {
     <>
       <button
         className={cn(
-          "text-neutral-800 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mr-2",
+          "text-neutral-800 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center mx-4",
           "hover:bg-neutral-100 focus:outline-none",
           "dark:hover:bg-gray-700 dark:text-white"
         )}
