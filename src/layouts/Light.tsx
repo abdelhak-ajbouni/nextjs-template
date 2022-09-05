@@ -11,7 +11,7 @@ export default function Default({ children }: Props) {
         pages={[{ label: 'About', path: '/about', active: true }]}
         dropdownPages={[{ label: 'Settings', path: '/me/settings' }]}
       />
-      <main>{children}</main>
+      <main className='py-8'>{children}</main>
     </>
   )
 }

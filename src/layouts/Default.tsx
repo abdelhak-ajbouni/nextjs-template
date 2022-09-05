@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react'
 
 import NavBar from 'components/NavBar'
+import Footer from 'components/Footer'
 
 export default function Default({ children }: Props) {
 
@@ -10,7 +11,8 @@ export default function Default({ children }: Props) {
         pages={[{ label: 'About', path: '/about', active: true }]}
         dropdownPages={[{ label: 'Settings', path: '/me/settings' }]}
       />
-      <main>{children}</main>
+      <main className='py-8'>{children}</main>
+      <Footer />
     </>
   )
 }
