@@ -4,8 +4,9 @@ import { SessionProvider } from "next-auth/react";
 import { ThemeProvider } from 'next-themes'
 import superjson from "superjson";
 import type { AppType } from "next/dist/shared/lib/utils";
-import { NextComponentTypeWithLayout } from 'types'
+export { reportWebVitals } from 'next-axiom';
 
+import { NextComponentTypeWithLayout } from 'types'
 import type { AppRouter } from "server/router";
 import DefaultLayout from 'layouts/Default'
 import Loader from 'components/Loader'

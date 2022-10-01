@@ -1,8 +1,10 @@
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";
+import { log } from 'next-axiom'
 
 import { createRouter } from "utils/context";
 
+// TODO: separate services from routes
 export const usersRouter = createRouter()
   .middleware(async ({ ctx, next }) => {
     // Any queries or mutations after this middleware will
@@ -18,7 +20,9 @@ export const usersRouter = createRouter()
         where: {
           email: ctx?.session?.user?.email as string
         }
-      });
+      }).catch(error => {
+        log.error('[users/getMe]', { error: error.message, data: ctx?.session?.user })
+      })
     },
   })
   .query("getSingleUser", {
